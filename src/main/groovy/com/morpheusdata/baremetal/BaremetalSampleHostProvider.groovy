@@ -113,9 +113,13 @@ class BaremetalSampleHostProvider extends AbstractProvisionProvider implements H
 	}
 
 	@Override
-	ServiceResponse validateHost(ComputeServer computeServer, Map map) {
-		log.info("Validating Host")
-		return ServiceResponse.success()
+	ServiceResponse validateHost(ComputeServer computeServer, Map opts) {
+		log.info("Validating Host, Options: ${opts}")
+		if(!opts.config.getAt("One")) {
+			return ServiceResponse.error("Validation failed", ["One": "Option One is required"])
+		} else {
+			return ServiceResponse.success()
+		}
 	}
 
 	@Override

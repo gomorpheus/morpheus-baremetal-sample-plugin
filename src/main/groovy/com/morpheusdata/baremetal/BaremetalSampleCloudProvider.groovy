@@ -154,7 +154,27 @@ class BaremetalSampleCloudProvider implements CloudProvider {
 			enabled: true,
 			agentType: ComputeServerType.AgentType.none,
 			provisionTypeCode: BaremetalSampleHostProvider.PROVIDER_CODE,
-			hasAutomation: false
+			hasAutomation: false,
+			optionTypes: [
+				new OptionType(
+					name: 'Option 1',
+					code: 'baremetal-sample.option1',
+					fieldName: 'One',
+					displayOrder: 0,
+					fieldLabel: 'Option 1',
+					required: true,
+					inputType: OptionType.InputType.TEXT
+				),
+				new OptionType(
+					name: 'Option 2',
+					code: 'baremetal-sample.option2',
+					fieldName: 'Two',
+					displayOrder: 10,
+					fieldLabel: 'Option 2',
+					required: false,
+					inputType: OptionType.InputType.TEXT
+				)
+			]
 		)
 
 		return serverTypes
